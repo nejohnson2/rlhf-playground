@@ -61,6 +61,7 @@ def build_grpo_config(
     if dev:
         grpo_args["max_steps"] = 20
         grpo_args["num_generations"] = 4
+        grpo_args["max_completion_length"] = 128
         grpo_args["logging_steps"] = 5
         grpo_args["save_steps"] = 10
         grpo_args["bf16"] = False  # MPS doesn't support bf16

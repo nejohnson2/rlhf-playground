@@ -58,6 +58,12 @@ def main():
         help="Path to prompt suite",
     )
     parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="Override model name (e.g., small model for local dev)",
+    )
+    parser.add_argument(
         "--dev",
         action="store_true",
         help="Dev mode: minimal training for local testing",
@@ -81,6 +87,13 @@ def main():
     experiment_cfg = load_config(args.config)
     model_cfg = load_config("configs/model/qwen2.5_7b_lora.yaml")
     cfg = merge_configs(model_cfg, experiment_cfg)
+
+    # Override model if specified (e.g., smaller model for local dev)
+    if args.model:
+        from omegaconf import OmegaConf
+
+        OmegaConf.update(cfg, "model.name_or_path", args.model)
+        logger.info("Model overridden to: %s", args.model)
 
     # Set seed
     set_seed(args.seed)

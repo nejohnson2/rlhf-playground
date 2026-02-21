@@ -2,6 +2,7 @@
        curate-dev train-dev generate-dev evaluate-dev test-rewards clean-all
 
 PYTHON = python
+DEV_MODEL = Qwen/Qwen2.5-0.5B-Instruct
 RESULTS_DIR = results
 DATA_DIR = $(RESULTS_DIR)/data
 METRICS_DIR = $(RESULTS_DIR)/metrics
@@ -28,6 +29,7 @@ curate-dev:
 train-dev:
 	$(PYTHON) scripts/02_train_grpo.py \
 		--config configs/experiment/length_bias.yaml \
+		--model $(DEV_MODEL) \
 		--lambda_value 0.3 \
 		--seed 42 \
 		--output_dir $(RESULTS_DIR)/checkpoints/dev \
