@@ -1,0 +1,29 @@
+name: rlhf-misspec
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - torch>=2.2.0
+    - transformers>=4.45.0
+    - accelerate>=1.0.1
+    - peft>=0.13.0
+    - trl>=0.14.0
+    - datasets>=2.18.0
+    - tokenizers>=0.19.0
+    - deepspeed>=0.14.0
+    - evalplus>=0.3.0
+    - spacy>=3.7.0
+    - sentence-transformers>=3.0.0
+    - pandas>=2.1.0
+    - numpy>=1.25.0
+    - jsonlines>=4.0.0
+    - matplotlib>=3.8.0
+    - seaborn>=0.13.0
+    - pyyaml>=6.0.0
+    - omegaconf>=2.3.0
+    - tqdm>=4.66.0
+    - pytest>=8.0.0
