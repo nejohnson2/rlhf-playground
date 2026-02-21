@@ -1,0 +1,48 @@
+# Virtual environments
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# macOS
+.DS_Store
+
+# Environment / Secrets
+.env
+*.key
+credentials.json
+
+# Data files
+results/checkpoints/
+results/completions/
+results/metrics/
+results/aggregated/
+results/figures/
+results/data/
+!results/README.md
+
+# Model files
+*.bin
+*.safetensors
+*.gguf
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/*.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+wandb/
+mlruns/
