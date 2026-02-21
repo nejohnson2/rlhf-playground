@@ -1,6 +1,12 @@
 # RLHF Reward Misspecification Experiment
 
-Investigating how small, systematic reward misspecifications get amplified by policy optimization into measurable behavioral drift across domains.
+## Abstract
+
+Reinforcement learning from human feedback (RLHF) has become the dominant paradigm for aligning large language models with human intent, yet the reward models that drive this optimization are imperfect proxies for what we actually want. This project investigates a simple but consequential question: when a reward signal contains a small, systematic bias — such as a mild preference for longer responses or for agreeing with the user — how does policy optimization amplify that bias into observable changes in model behavior?
+
+We introduce controlled reward misspecifications of the form `reward = task_score + λ * bias_feature`, where `λ` governs the strength of a known bias injected alongside a legitimate task reward. By training a 7B-parameter language model under varying bias intensities across six prompt domains (coding, math, factual QA, advice, opinion, and creative writing), we construct dose-response curves that quantify how behavioral metrics — response length, hedging frequency, agreement rate, and others — shift as a function of misspecification strength. Crucially, we measure these shifts separately for objective domains (where correctness is verifiable) and subjective domains (where the model has more latitude to drift), revealing that the same reward bias produces markedly different behavioral signatures depending on task structure.
+
+Our experimental design holds all other variables constant — same base model, same prompts, same sampling — so that any measured drift is attributable to the reward signal alone. This controlled setup allows us to characterize reward misspecification not as a binary failure mode, but as a graded phenomenon with predictable, domain-dependent dynamics.
 
 ## Research Question
 
